@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Team Task Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1>🤖 Agent Team Task Manager</h1>
+      <p class="subtitle">Built by a team of GitHub Copilot Sub Agents</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Add Task Form -->
+    <section class="card form-card">
+      <h2>Add a New Task</h2>
+      <form id="task-form" novalidate>
+        <div class="form-group">
+          <label for="task-title">Title <span class="required">*</span></label>
+          <input
+            type="text"
+            id="task-title"
+            placeholder="What needs to be done?"
+            autocomplete="off"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="task-desc">Description</label>
+          <textarea
+            id="task-desc"
+            rows="2"
+            placeholder="Optional details…"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Task</button>
+      </form>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+      <span id="task-count" class="task-count"></span>
+    </section>
+
+    <!-- Task List -->
+    <section id="task-list" class="task-list" aria-live="polite">
+      <!-- Tasks injected by app.js -->
+    </section>
+
+    <!-- Empty state -->
+    <div id="empty-state" class="empty-state hidden">
+      <span class="empty-icon">📋</span>
+      <p>No tasks yet. Add one above!</p>
+    </div>
+  </main>
+
+  <!-- Agent Team Credits -->
+  <aside class="agents-panel card">
+    <h2>🏗️ Agent Team</h2>
+    <p>This application was built collaboratively by a team of GitHub Copilot Sub Agents:</p>
+    <ul class="agent-list">
+      <li class="agent-item">
+        <span class="agent-badge backend">Backend Agent</span>
+        <span>Built the Express REST API (<code>src/</code>)</span>
+      </li>
+      <li class="agent-item">
+        <span class="agent-badge frontend">Frontend Agent</span>
+        <span>Built this UI (<code>public/</code>)</span>
+      </li>
+      <li class="agent-item">
+        <span class="agent-badge testing">Testing Agent</span>
+        <span>Wrote all Jest/Supertest tests (<code>tests/</code>)</span>
+      </li>
+    </ul>
+  </aside>
+
+  <footer class="footer">
+    <p>GitHub Copilot Sub Agents Demo &mdash; See <a href="https://github.com/ashutoshkumar-tz/sub-agents" target="_blank" rel="noopener noreferrer">README</a> for details</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
